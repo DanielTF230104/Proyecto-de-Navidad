@@ -27,3 +27,5 @@ Mira cómo funciona la gestión de usuarios, la edición inteligente y el contro
 * **Backend:** Node.js (Express framework).
 * **Base de Datos:** MySQL 8.0.
 * **Infraestructura:** Docker & Docker Compose.
+
+![Pantalla de Login](./img/despedida.png)
