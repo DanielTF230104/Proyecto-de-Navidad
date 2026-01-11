@@ -5,7 +5,7 @@ Este proyecto es una aplicación web completa para la administración de usuario
 ## Demostración en Vídeo
 Mira cómo funciona la gestión de usuarios, la edición inteligente y el control de acceso de administrador en el siguiente vídeo:
 
-[![Mira el vídeo en YouTube](https://youtu.be/wLQwT81qRXE)]
+[![Mira el vídeo en YouTube]](https://youtu.be/wLQwT81qRXE)
 
 ---
 
