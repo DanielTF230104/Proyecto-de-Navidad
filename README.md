@@ -28,4 +28,4 @@ Mira cómo funciona la gestión de usuarios, la edición inteligente y el contro
 * **Base de Datos:** MySQL 8.0.
 * **Infraestructura:** Docker & Docker Compose.
 
-![Pantalla de Login](./img/despedida.png)
+![Pantalla de Login](img/despedida.jpg)
