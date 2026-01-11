@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web completa para la administración de usuarios, desarrollada con una arquitectura moderna que separa el **Frontend (Angular)** del **Backend (Node.js)**, utilizando **MySQL** como base de datos y **Docker** para la orquestación de todo el entorno.
 
-## 📺 Demostración en Vídeo
+## Demostración en Vídeo
 Mira cómo funciona la gestión de usuarios, la edición inteligente y el control de acceso de administrador en el siguiente vídeo:
 
 [![Mira el vídeo en YouTube](https://youtu.be/wLQwT81qRXE)
