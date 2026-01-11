@@ -1,0 +1,38 @@
+<div class="container-fluid py-3 px-4">
+  <h5>Registro</h5>
+
+  <div class="row">
+    <div class="col-md-4 mb-2">
+      <input
+        type="text"
+        [(ngModel)]="nombre"
+        class="form-control"
+        placeholder="Nombre">
+    </div>
+
+    <div class="col-md-4 mb-2">
+      <input
+        type="text"
+        [(ngModel)]="username"
+        class="form-control"
+        placeholder="Usuario">
+    </div>
+
+    <div class="col-md-4 mb-2">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        class="form-control"
+        placeholder="Contraseña">
+    </div>
+
+    <div class="col-12">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="registrar()">
+        Registrarse
+      </button>
+    </div>
+  </div>
+</div>

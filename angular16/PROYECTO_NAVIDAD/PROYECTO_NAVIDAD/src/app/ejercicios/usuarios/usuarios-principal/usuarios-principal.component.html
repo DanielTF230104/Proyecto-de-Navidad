@@ -1,0 +1,19 @@
+<div class="container-fluid py-3 px-4">
+    <h4>🛡️ Gestión de Usuarios (Admin)</h4>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <app-formulario-usuario 
+              [usuarioAEditar]="usuarioAEditar()" 
+              (enviarUsuario)="recibirUsuarioDeHijo($event)">
+            </app-formulario-usuario>
+        </div>
+        <div class="col-md-8">
+            <app-listado-usuarios 
+              [usuarios]="listadoUsuarios()" 
+              (eliminar)="eliminarUsuarioDeHijo($event)"
+              (editar)="editarUsuarioDeHijo($event)">
+            </app-listado-usuarios>
+        </div>
+    </div>
+</div>

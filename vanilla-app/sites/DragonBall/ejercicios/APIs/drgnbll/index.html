@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Consumo de la Dragon Ball API" />
+    <title>JavaScript ES6 – Dragon Ball API</title>
+    <link rel="icon" type="image/x-icon" href="../../../img/favicon.ico" />
+    <link rel="stylesheet" href="../../../css/styles.css" /> <!-- principal  -->
+    <link rel="stylesheet" href="../../css/styles.css" /> <!-- común para todos los ejercicios  -->
+    <link rel="stylesheet" href="./css/styles.css" /> <!-- exclusivos de Dragon Ball  -->
+    <script src="../../../js/idb/indexedDB.js" defer></script>
+    <script src="../../../js/idb/setIndexedDB.js" defer></script>
+    <script src="../../../js/idb/getIndexedDB.js" defer></script>
+    <script src="../../../js/idb/sesion.js" defer></script>
+    <script src="../../../js/menu/auth.js" defer></script>
+    <script src="../../../js/menu/menu.js" defer></script>
+    <script src="./js/APIcall.js" defer></script>
+    <script src="./js/APIcallTransformaciones.js" defer></script>
+    <script src="./js/APIresponse.js" defer></script>
+    <script src="./js/detallesTransformacion.js" defer></script>
+    <script src="./js/transformaciones.js" defer></script>
+    <script src="./js/detallesPersonaje.js" defer></script>
+    <script src="./js/personajes.js" defer></script>
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h3>Ejemplos – FUNDAMENTOS DE JS (ES6)</h3>
+            <h4>Desarrollo WEB en entorno cliente</h4>
+            <h2>Consumo de la API pública de Dragon Ball</h2>
+        </div>
+        <div class="header-profile">
+            <img src="../../../img/user.png" alt="Foto de perfil" />
+        </div>
+    </header>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="https://www.w3schools.com/js/default.asp">w3schools</a></li>
+            <li><a href="https://es.javascript.info/js">javascript.info</a></li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a></li>
+            <li class="dropdown privado" style="display: none;">
+                <a href="#">DOM</a>
+                <ul class="dropdown-content" aria-label="submenu">
+                    <li><a href="../../DOM/ejer01/index.html">ElementById</a></li>
+                    <li><a href="../../DOM/ejer02/index.html">ElementsByClass/Tag</a></li>
+                    <li><a href="../../DOM/ejer03/index.html">querySelector/All</a></li>
+                    <li><a href="../../DOM/ejer04/index.html">textContent,innerText/HTML</a></li>
+                    <li><a href="../../DOM/ejer05/index.html">createElement_appendRemoveChild</a></li>
+                    <li><a href="../../DOM/ejer06/index.html">addRemoveListener</a></li>
+                    <li><a href="../../DOM/ejer07/index.html">nodeChildSibling</a></li>
+                </ul>
+            </li>
+            <li class="dropdown privado" style="display: none;">
+                <a href="#">Acceso</a>
+                <ul class="dropdown-content" aria-label="submenu">
+                    <li><a href="../../Acceso/mostrarOcultar/index.html">MostrarOcultar</a></li>
+                    <li><a href="../../Acceso/cookies/index.html">cookies</a></li>
+                    <li><a href="../../Acceso/localStorage/variasClavesPorCadaValor/index.html">localStorage (op1)</a>
+                    </li>
+                    <li><a href="../../Acceso/localStorage/unaClavePorVariosValores/index.html">localStorage (op2)</a>
+                    </li>
+                    <li><a href="../../Acceso/localStorage/claveValoresImg/index.html">localStorage (op2 + img)</a></li>
+                    <li><a href="../../../usuarios.html">IndexedDB (CRUD)</a></li>
+                </ul>
+            </li>
+            <li class="dropdown privado" style="display: none;">
+                <a href="#">APIs</a>
+                <ul class="dropdown-content" aria-label="submenu">
+                    <li><a href="./index.html">Dragon Ball</a></li>
+                </ul>
+            </li>
+
+            <li id="enlaceRegistro" class="publico"><a href="../../../registro.html">Registro</a></li>
+            <li id="enlaceLogin" class="publico"><a href="../../../login.html">Login</a></li>
+
+            <li id="usuario" class="privado" style="display: none;"></li>
+            <li id="cerrarSesion" class="privado" style="display: none;"><a href="#">Cerrar sesión</a></li>
+
+            <li id="gestionUsuarios" class="privado" style="display: none;"><a
+                    href="../../../usuarios.html">Usuarios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- Tarjeta 1: Búsqueda -->
+            <div class="card" id="cardBusqueda">
+                <div class="cardTitle">Búsqueda</div>
+                <div class="cardBody">
+                    <p>Selecciona los parámetros para buscar personajes:</p>
+
+                    <!-- Género -->
+                    <label for="gender">Género:</label>
+                    <select id="gender">
+                        <option value="">Todos</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Unknown">Unknown</option>
+                    </select><br /><br />
+
+                    <!-- Raza -->
+                    <label for="race">Raza:</label>
+                    <select id="race">
+                        <option value="">Todas</option>
+                        <option value="Saiyan">Saiyan</option>
+                        <option value="Namekian">Namekian</option>
+                        <option value="Human">Human</option>
+                        <option value="Majin">Majin</option>
+                        <option value="Frieza Race">Frieza Race</option>
+                        <option value="Jiren Race">Jiren Race</option>
+                        <option value="Android">Android</option>
+                        <option value="God">God</option>
+                        <option value="Angel">Angel</option>
+                        <option value="Evil">Evil</option>
+                        <option value="Unknown">Unknown</option>
+                        <option value="Nucleico benigno">Nucleico benigno</option>
+                        <option value="Nucleico">Nucleico</option>
+                    </select><br /><br />
+
+                    <!-- Afiliación -->
+                    <label for="affiliation">Afiliación:</label>
+                    <select id="affiliation">
+                        <option value="">Todas</option>
+                        <option value="Z Fighter">Z Fighter</option>
+                        <option value="Red Ribbon Army">Red Ribbon Army</option>
+                        <option value="Namekian Warrior">Namekian Warrior</option>
+                        <option value="Freelancer">Freelancer</option>
+                        <option value="Army of Frieza">Army of Frieza</option>
+                        <option value="Other">Other</option>
+                        <option value="Pride Troopers">Pride Troopers</option>
+                        <option value="Assistant of Vermoud">Assistant of Vermoud</option>
+                        <option value="Assistant of Beerus">Assistant of Beerus</option>
+                        <option value="Villain">Villain</option>
+                    </select><br /><br />
+
+                    <button id="buscar"><img src="../../../img/search.png" width="22" height="22" /> Buscar</button>
+                    <p id="mensaje"></p>
+                </div>
+                <div class="cardFooter">
+                    <a href="../../../index.html">&gt;&gt; Página principal</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Personajes -->
+            <div class="card hidden" id="cardPersonajes">
+                <div class="cardTitle">Personajes</div>
+                <div class="cardBody">
+                    <p>Los personajes aparecerán aquí después de realizar la búsqueda.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Detalle del personaje -->
+            <div class="card hidden" id="cardDetallesPersonaje">
+                <div class="cardTitle">Detalle del Personaje</div>
+                <div class="cardBody">
+                    <p>Selecciona un personaje para ver los detalles.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Transformaciones -->
+            <div class="card hidden" id="cardTransformaciones">
+                <div class="cardTitle">Transformaciones</div>
+                <div class="cardBody">
+                    <p>Selecciona un personaje para ver sus transformaciones.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Detalle de Transformación -->
+            <div class="card hidden" id="cardDetallesTransformacion">
+                <div class="cardTitle">Detalle de Transformación</div>
+                <div class="cardBody">
+                    <p>Selecciona una transformación para ver sus detalles.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        © José García ☺
+    </footer>
+</body>
+
+</html>

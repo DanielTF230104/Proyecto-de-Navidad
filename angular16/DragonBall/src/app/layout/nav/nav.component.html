@@ -1,0 +1,36 @@
+<nav>
+  <ul class="navbar d-flex align-items-center">
+
+    <!-- IZQUIERDA (todo lo que ya tienes) -->
+    <li><a href="https://www.w3schools.com/js/default.asp">w3schools</a></li>
+    <li><a href="https://es.javascript.info/js">javascript.info</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a></li>
+
+    <!-- Ejercicios -->
+    <li class="dropdown" *ngIf="isLoggedIn()">
+      <a href="" (click)="$event.preventDefault()">Ejercicios</a>
+      <ul class="dropdown-content">
+        <li><a routerLink="/ejercicio01">Ejercicio 01</a></li>
+      </ul>
+    </li>
+
+    <!-- EMPUJADOR -->
+    <li class="ms-auto"></li>
+
+    <!-- DERECHA -->
+    <ng-container *ngIf="!isLoggedIn()">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/registro">Registro</a></li>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn()">
+      <li class="nav-user">
+        👤 {{ usuario()?.nombre }}
+      </li>
+      <li>
+        <a href="" (click)="$event.preventDefault(); logout()">Salir</a>
+      </li>
+    </ng-container>
+
+  </ul>
+</nav>

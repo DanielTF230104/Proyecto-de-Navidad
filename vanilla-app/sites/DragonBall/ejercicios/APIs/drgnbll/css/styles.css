@@ -1,0 +1,109 @@
+/* ============================
+   Tarjeta de Personajes Dragon Ball
+=============================== */
+
+/* La tarjeta mantiene tamaño fijo y scroll interno en el contenido */
+#cardPersonajes,
+#cardTransformaciones {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scroll solo en el cuerpo */
+#cardPersonajes .cardBody,
+#cardTransformaciones .cardBody {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+/* Mini tarjetas más compactas */
+.db-mini-card {
+    width: 130px;
+    height: 200px;
+    /* Establecemos una altura fija */
+    padding: 6px;
+    background: rgba(42, 90, 163, 0.07);
+    border: 1px solid rgba(42, 90, 163, 0.15);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Nombre arriba */
+.db-mini-card h4 {
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+/* Imagen bien visible y completa */
+.db-mini-card img {
+    width: 100%;
+    height: auto;
+    max-height: 130px;
+    /* Limita la altura para evitar deformaciones */
+    object-fit: contain;
+    /* No recorta la imagen */
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+/* KI debajo */
+.db-mini-card p {
+    font-size: 11px;
+    margin: 4px 0 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================
+   Tarjeta de Detalle Dragon Ball
+=============================== */
+
+.db-detalle-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    justify-items: start;
+}
+
+/* Imagen ampliada en el detalle */
+.db-detalle-body img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+/* ============================
+   Tarjeta de Transformaciones (igual que Personajes)
+=============================== */
+
+/* ============================
+   Tarjeta de Detalles Transformación
+=============================== */
+
+.db-detalle-transformacion-body {
+  display: grid;
+  grid-template-columns: 1fr; /* Una sola columna */
+  gap: 12px;  /* Espacio entre los elementos */
+  justify-items: center;  /* Alineación de los elementos */
+}
+
+.db-detalle-transformacion-body img {
+  width: 100%;
+  max-width: 200px;  /* Mantenemos el tamaño máximo para la imagen */
+  height: auto;
+  object-fit: contain;  /* Esto asegura que la imagen no se recorte ni se deforme */
+  background: #ffffff;
+  border-radius: 8px;
+}

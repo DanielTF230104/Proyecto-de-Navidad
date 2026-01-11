@@ -1,0 +1,20 @@
+/* ================================================= */
+/* =============== ESTILOS GENERALES =============== */
+/* ================================================= */
+
+body {
+  background: url('./assets/bgwhite.png') repeat;
+  text-align: justify;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+}
+
+/* ================================================= */
+/* ==================== RESPONSIVE ================= */
+/* ================================================= */
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}

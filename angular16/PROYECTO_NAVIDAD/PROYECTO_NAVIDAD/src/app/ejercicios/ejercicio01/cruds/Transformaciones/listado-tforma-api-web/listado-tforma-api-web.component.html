@@ -1,0 +1,46 @@
+<div class="container">
+  <h5>Listado de Transformaciones de Dragon Ball</h5>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>KI</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let t of listadoTransformaciones; let i = index">
+        <td>{{ i + 1 }}</td>
+
+        <td>
+            <img 
+            [src]="t.image"
+            [alt]="t.name"
+            class="img-mini"
+            style = "width: 50px; height: auto;">
+        </td>
+
+        <td>{{ t.name }}</td>
+        <td>{{ t.ki || 'Desconocido' }}</td>
+
+        <td>
+          <button 
+            class="btn btn-sm btn-warning me-2" 
+            (click)="emitirEditar(t, i)">
+            Editar
+          </button>
+
+          <button 
+            class="btn btn-sm btn-danger" 
+            (click)="emitirEliminar(i)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

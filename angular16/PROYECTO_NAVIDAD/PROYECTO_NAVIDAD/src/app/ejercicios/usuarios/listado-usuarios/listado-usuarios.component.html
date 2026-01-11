@@ -1,0 +1,32 @@
+<div class="card p-3 shadow-sm">
+    <table class="table table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Foto</th>
+                <th>Nombre / Usuario</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of usuarios">
+                <td>
+                    <img [src]="u.imagen || 'assets/user.png'" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                </td>
+                <td>
+                    <strong>{{u.nombre}}</strong><br>
+                    <small class="text-muted">@{{u.username}}</small>
+                </td>
+                <td>
+                    <span [class]="u.rol === 'administrador' ? 'badge bg-danger' : 'badge bg-primary'">
+                        {{u.rol}}
+                    </span>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2" (click)="editar.emit(u)">Editar</button>
+                    <button class="btn btn-sm btn-danger" (click)="eliminar.emit(u.id)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

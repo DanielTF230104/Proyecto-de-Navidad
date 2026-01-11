@@ -1,0 +1,42 @@
+<nav> 
+  <ul class="navbar d-flex align-items-center">
+    <li><a href="https://www.w3schools.com/js/default.asp">w3schools</a></li>
+    <li><a href="https://es.javascript.info/js">javascript.info</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a></li>
+    
+    <li class="dropdown" *ngIf="authService.isLoggedIn()">
+      <a href="javascript:void(0)">Menú</a>
+      <ul class="dropdown-content">
+        <li><a routerLink="/ejercicio01">Ejercicio 01</a></li>
+        <li><a routerLink="/ejercicio02">Ejercicio 02</a></li>
+        
+        <li class="nav-item" *ngIf="authService.isAdmin()">
+          <a class="nav-link" routerLink="/usuarios">Usuarios</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="ms-auto"></li>
+
+    <ng-container *ngIf="!authService.isLoggedIn()">
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/registro">Registro</a></li>
+    </ng-container>
+
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/inicio">🏠 Inicio</a>
+      </li>
+      <li class="nav-user d-flex align-items-center me-3">
+        <img [src]="authService.usuario()?.imagen || 'assets/user.png'" 
+             class="rounded-circle me-2" 
+             style="width: 35px; height: 35px; object-fit: cover; border: 1px solid #ccc;">
+        <span class="text-white">{{ authService.usuario()?.nombre }}</span>
+      </li>
+      
+      <li>
+        <a href="javascript:void(0)" (click)="logout()" class="btn-logout">Salir</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

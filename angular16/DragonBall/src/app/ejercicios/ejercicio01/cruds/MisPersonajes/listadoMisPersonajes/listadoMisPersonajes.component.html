@@ -1,0 +1,32 @@
+<div class="container">
+    <h5>Listado de mis personajes</h5>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Fuerza</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let miPersonaje of listadoMisPersonajes; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{miPersonaje.name}}</td>
+                <td>{{miPersonaje.ki}}</td>
+                <td>
+                    <button 
+                        class="btn btn-sm btn-warning me-2" 
+                        (click)="editarMiPersonaje(miPersonaje, miPersonaje.id!)">
+                        Editar
+                    </button>
+                    <button 
+                        class="btn btn-sm btn-danger" 
+                        (click)="eliminarIndice(miPersonaje.id!)">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

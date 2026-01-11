@@ -1,0 +1,48 @@
+<div class="container-fluid py-3 px-4">
+    <h4>CRUD de datos</h4>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-miPersonaje 
+              (enviarMiPersonajeAPadre)="recibirMiPersonajeDeHijo($event)" 
+              [editaMiPersonaje]="editaMiPersonaje()">
+            </app-miPersonaje>
+        </div>
+        <div class="col">
+            <app-listadoMisPersonajes 
+            [listadoMisPersonajes]="listadoMisPersonajes()" 
+            (enviarIndiceAPadre)="eliminarMiPersonajeDeHijo($event)"
+            (enviarMiPersonajeAPadre)="editarMiPersonajeDeHijo($event)">
+            </app-listadoMisPersonajes>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col">
+            <app-busca-tforma-api-web
+              (enviarNombreAPadre)="recibirNombreDeHijo($event)"
+              [editaTransformacion]="editaTransformacion()">
+            </app-busca-tforma-api-web>
+        </div>
+        <div class="col">
+            <app-listado-tforma-api-web
+                [listadoTransformaciones]="listadoTransformaciones()"
+                (enviarIndiceAPadre)="eliminarTFormaDeHijo($event)"
+                (enviarTFormaAPadre)="editarTFormaDeHijo($event)">
+            </app-listado-tforma-api-web>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-filtro-api-web 
+              (filtrosAPIChange)="recibirFiltrosAPI($event)"> 
+            </app-filtro-api-web>
+        </div>
+        <div class="col">
+            <app-listado-filtro-api-web
+              [listadoPersonajes]="listadoPersonajes()"
+              (enviarIndiceAPadre)="eliminarPersonajeDeHijo($event)"
+              (enviarPersonajeAPadre)="editarPersonajeDeHijo($event)">
+            </app-listado-filtro-api-web>        
+        </div>
+    </div>
+</div>

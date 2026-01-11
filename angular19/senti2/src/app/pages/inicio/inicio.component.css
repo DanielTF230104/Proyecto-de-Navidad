@@ -1,0 +1,22 @@
+.hero {
+  display: flex;
+  padding: 60px;
+  background: #f4ece3;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-size: 38px;
+}
+
+.cards {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+}

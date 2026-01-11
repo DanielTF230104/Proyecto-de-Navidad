@@ -1,0 +1,7 @@
+footer {
+  background: #2a5aa3;
+  color: rgba(255, 250, 250, 0.9);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+  text-align: center;
+  padding: 20px;
+}

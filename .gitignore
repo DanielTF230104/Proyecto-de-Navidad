@@ -1,0 +1,23 @@
+# --- Dependencias de Node (MUY IMPORTANTE) ---
+# Esto evitará el error que tuviste anteriormente al subir archivos
+**/node_modules/
+
+# --- Angular (Ruta: angular16/PROYECTO_NAVIDAD) ---
+# Ignora carpetas de compilación y caché de Angular
+angular16/PROYECTO_NAVIDAD/.angular/
+angular16/PROYECTO_NAVIDAD/dist/
+
+# --- Node.js Backend (Ruta: nodejs-app) ---
+# Por si acaso hubiera compilaciones en el backend
+nodejs-app/dist/
+
+# --- Archivos del Sistema y logs ---
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Archivos de Docker locales ---
+# Si tu base de datos genera una carpeta de datos local
+db/data/
